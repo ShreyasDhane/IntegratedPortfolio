@@ -244,31 +244,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-    function triggerCleverTapLogin() {
-    clevertap.onUserLogin.push({
-      "Site": {
-        "Name": "Shreyas Portfolio",
-        "Identity": "264732643282",
-        "Email": "portfolio@gmail.com",
-        "Phone": "+131355551234",
-        "Gender": "M",
-        "DOB": new Date("1990-01-01"),
-        "MSG-email": false,
-        "MSG-push": true,
-        "MSG-sms": true,
-        "MSG-whatsapp": true
-      }
-    });
-    alert("CleverTap login triggered!");
-  }
+//     function triggerCleverTapLogin() {
+//     clevertap.onUserLogin.push({
+//       "Site": {
+//         "Name": "Shreyas Portfolio",
+//         "Identity": "264732643282",
+//         "Email": "portfolio@gmail.com",
+//         "Phone": "+131355551234",
+//         "Gender": "M",
+//         "DOB": new Date("1990-01-01"),
+//         "MSG-email": false,
+//         "MSG-push": true,
+//         "MSG-sms": true,
+//         "MSG-whatsapp": true
+//       }
+//     });
+//     alert("CleverTap login triggered!");
+//   }
 
-  function triggerPushEvent() {
-    clevertap.event.push("Push Clicked", {
-      "Page": "Home",
-      "Time": new Date()
-    });
-    alert("Push event sent to CleverTap!");
-  }
+//   function triggerPushEvent() {
+//     clevertap.event.push("Push Clicked", {
+//       "Page": "Home",
+//       "Time": new Date()
+//     });
+//     alert("Push event sent to CleverTap!");
+//   }
+// 
+<button id="track-me-button">Click Me!</button>
+
+
 </script>
 
     </body>
