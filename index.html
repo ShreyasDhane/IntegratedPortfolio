@@ -57,7 +57,7 @@
                         </mask>
                         <g mask="url(#mask0)">
                             <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/me.jpg"/>
+                            <!-- <image class="home__blob-img" x="50" y="60" href="assets/img/me.jpg"/> -->
                         </g>
                     </svg>
                 </div>
@@ -69,7 +69,7 @@
 
                 <div class="about__container bd-grid">
                     <div class="about__img">
-                        <img src="assets/img/me.jpg" alt="">
+                        <!-- <img src="assets/img/me.jpg" alt=""> -->
                     </div>
                     
                     <div>
@@ -170,18 +170,16 @@
             </section>
 
             <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+            <!--===== CLEVERTAP TEST SECTION =====-->
+<section class="contact section">
+    <h2 class="section-title">CleverTap Test</h2>
+    <div class="contact__container bd-grid" style="text-align:center;">
+        <button onclick="triggerCleverTapLogin()" class="contact__button button">Login to CleverTap</button>
+        <br><br>
+        <button onclick="triggerPushEvent()" class="contact__button button">Trigger Push Event</button>
+    </div>
+</section>
 
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Submit" class="contact__button button">
-                    </form>
-                </div>
-            </section>
         </main>
 
         <!--===== FOOTER =====-->
@@ -201,5 +199,64 @@
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
+
+
+        <script type="text/javascript">
+    var clevertap = {
+      event: [], 
+      profile: [], 
+      account: [], 
+      onUserLogin: [], 
+      notifications: [], 
+      privacy: []
+    };
+    
+    // Replace with your actual CleverTap Account ID and region
+    clevertap.account.push({ "id": "TEST-696-ZRW-7K7Z" }, "eu1");
+
+    // Optional Privacy Settings
+    clevertap.privacy.push({ optOut: false }); // Set true if user opts out of data tracking
+    clevertap.privacy.push({ useIP: false });  // Set true if user agrees to share IP
+
+    (function () {
+      var wzrk = document.createElement('script');
+      wzrk.type = 'text/javascript';
+      wzrk.async = true;
+      wzrk.src = ('https:' == document.location.protocol 
+        ? 'https://d2r1yp2w7bby2u.cloudfront.net' 
+        : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wzrk, s);
+    })();
+
+
+
+    function triggerCleverTapLogin() {
+    clevertap.onUserLogin.push({
+      "Site": {
+        "Name": "Shreyas Portfolio",
+        "Identity": "264732643282",
+        "Email": "portfolio@gmail.com",
+        "Phone": "+131355551234",
+        "Gender": "M",
+        "DOB": new Date("1990-01-01"),
+        "MSG-email": false,
+        "MSG-push": true,
+        "MSG-sms": true,
+        "MSG-whatsapp": true
+      }
+    });
+    alert("CleverTap login triggered!");
+  }
+
+  function triggerPushEvent() {
+    clevertap.event.push("Push Clicked", {
+      "Page": "Home",
+      "Time": new Date()
+    });
+    alert("Push event sent to CleverTap!");
+  }
+</script>
+
     </body>
 </html>
