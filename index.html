@@ -185,17 +185,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <!--===== CONTACT =====-->
             <!--===== CLEVERTAP TEST SECTION =====-->
+<!--===== USER PROFILE FORM =====-->
 <section class="contact section">
-    <h2 class="section-title">CleverTap Test</h2>
-    <div class="contact__container bd-grid" style="text-align:center;">
-        <button onclick="triggerCleverTapLogin()" class="contact__button button">Login to CleverTap</button>
-        <br><br>
-        <button onclick="triggerPushEvent()" class="contact__button button">Trigger Push Event</button>
-         <br><br>
-        <button id="track-me-button">Click Me!</button>
-    
+    <h2 class="section-title">User Profile Upload</h2>
+    <div class="contact__container bd-grid" style="text-align:center; max-width: 400px; margin:auto;">
+        <form id="user-profile-form">
+            <input type="text" id="name" placeholder="Full Name" required class="contact__input"><br><br>
+            <input type="email" id="email" placeholder="Email" required class="contact__input"><br><br>
+            <input type="tel" id="phone" placeholder="Phone (e.g. +911234567890)" required class="contact__input"><br><br>
+            <select id="gender" required class="contact__input">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+            </select><br><br>
+            <input type="date" id="dob" required class="contact__input"><br><br>
+            <button type="submit" class="button">Submit Profile</button>
+        </form>
     </div>
 </section>
+
 
         </main>
 
@@ -248,23 +257,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-//     function triggerCleverTapLogin() {
-//     clevertap.onUserLogin.push({
-//       "Site": {
-//         "Name": "Shreyas Portfolio",
-//         "Identity": "264732643282",
-//         "Email": "portfolio@gmail.com",
-//         "Phone": "+131355551234",
-//         "Gender": "M",
-//         "DOB": new Date("1990-01-01"),
-//         "MSG-email": false,
-//         "MSG-push": true,
-//         "MSG-sms": true,
-//         "MSG-whatsapp": true
-//       }
-//     });
-//     alert("CleverTap login triggered!");
-//   }
+ document.getElementById("user-profile-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const gender = document.getElementById("gender").value;
+    const dob = document.getElementById("dob").value;
+
+    clevertap.onUserLogin.push({
+      "Site": {
+        "Name": name,
+        "Identity": email, // You can use email or phone as identity
+        "Email": email,
+        "Phone": phone,
+        "Gender": gender,
+        "DOB": new Date(dob),
+        "MSG-email": true,
+        "MSG-push": true,
+        "MSG-sms": true,
+        "MSG-whatsapp": true
+      }
+    });
+
+    alert("User profile submitted to CleverTap!");
+    document.getElementById("user-profile-form").reset();
+  });
 
 //   function triggerPushEvent() {
 //     clevertap.event.push("Push Clicked", {
