@@ -3,285 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-    <title>Portfolio - CleverTap Push Fixed</title>
+    <title>CleverTap Profile Push - Working</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background: #45a049;
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .debug-section {
+            margin-top: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .debug-section h3 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        
+        .debug-log {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header and navigation -->
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo"></a>
+    <div class="container">
+        <h1>CleverTap Profile Push Test</h1>
+        
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
             </div>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
+            
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
             </div>
-        </nav>
-    </header>
-
-    <main class="l-main">
-        <!-- Home Section -->
-        <section class="home bd-grid" id="home">
-            <div class="home__data">
-                <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Shreyas</span><br> Web Designer</h1>
-                <a href="#contact" class="button">Contact</a>
+            
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                </select>
             </div>
-            <div class="home__social">
-                <a href="https://www.linkedin.com" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                <a href="#" class="home__social-icon"><i class='bx bxl-behance'></i></a>
-                <a href="#" class="home__social-icon"><i class='bx bxl-github'></i></a>
+            
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
             </div>
-            <div class="home__img">
-                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0" mask-type="alpha">
-                        <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                    </mask>
-                    <g mask="url(#mask0)">
-                        <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                    </g>
-                </svg>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <h2 class="section-title">About</h2>
-            <div class="about__container bd-grid">
-                <div class="about__img"></div>
-                <div>
-                    <h2 class="about__subtitle">I'am Shreyas</h2>
-                    <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills section" id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills__container bd-grid">
-                <div>
-                    <h2 class="skills__subtitle">Professional Skills</h2>
-                    <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxl-html5 skills__icon'></i>
-                            <span class="skills__name">HTML5</span>
-                        </div>
-                        <div class="skills__bar skills__html"></div>
-                        <div><span class="skills__percentage">95%</span></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxl-css3 skills__icon'></i>
-                            <span class="skills__name">CSS3</span>
-                        </div>
-                        <div class="skills__bar skills__css"></div>
-                        <div><span class="skills__percentage">85%</span></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxl-javascript skills__icon'></i>
-                            <span class="skills__name">JAVASCRIPT</span>
-                        </div>
-                        <div class="skills__bar skills__js"></div>
-                        <div><span class="skills__percentage">65%</span></div>
-                    </div>
-                    <div class="skills__data">
-                        <div class="skills__names">
-                            <i class='bx bxs-paint skills__icon'></i>
-                            <span class="skills__name">UX/UI</span>
-                        </div>
-                        <div class="skills__bar skills__ux"></div>
-                        <div><span class="skills__percentage">85%</span></div>
-                    </div>
-                </div>
-                <div>
-                    <img src="assets/img/work3.jpg" alt="" class="skills__img">
-                </div>
-            </div>
-        </section>
-
-        <!-- Work Section -->
-        <section class="work section" id="work">
-            <h2 class="section-title">Work</h2>
-            <div class="work__container bd-grid">
-                <a href="#" class="work__img"><img src="assets/img/work1.jpg" alt=""></a>
-                <a href="#" class="work__img"><img src="assets/img/work2.jpg" alt=""></a>
-                <a href="#" class="work__img"><img src="assets/img/work3.jpg" alt=""></a>
-                <a href="#" class="work__img"><img src="assets/img/work4.jpg" alt=""></a>
-                <a href="#" class="work__img"><img src="assets/img/work5.jpg" alt=""></a>
-                <a href="#" class="work__img"><img src="assets/img/work6.jpg" alt=""></a>
-            </div>
-        </section>
-
-        <!-- Contact/User Profile Section -->
-        <section class="contact section" id="contact">
-            <h2 class="section-title">User Profile & Push Notifications</h2>
-            <div class="contact__container bd-grid" style="text-align:center; max-width: 500px; margin:auto;">
-                
-                <!-- Push Permission Button -->
-                <div style="margin-bottom: 30px;">
-                    <button id="enable-push" class="button" style="background: #ff6b6b; margin-bottom: 10px;">
-                        🔔 Enable Push Notifications
-                    </button>
-                    <p id="push-status" style="font-size: 14px; color: #666;"></p>
-                </div>
-
-                <!-- User Profile Form -->
-                <form id="user-profile-form">
-                    <input type="text" id="name" placeholder="Full Name" required class="contact__input"><br><br>
-                    <input type="email" id="email" placeholder="Email" required class="contact__input"><br><br>
-                    <input type="tel" id="phone" placeholder="Phone (e.g. +911234567890)" required class="contact__input"><br><br>
-                    <select id="gender" required class="contact__input">
-                        <option value="" disabled selected>Select Gender</option>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                        <option value="O">Other</option>
-                    </select><br><br>
-                    <input type="date" id="dob" required class="contact__input"><br><br>
-                    <button type="submit" class="button">Submit Profile</button>
-                </form>
-
-                <!-- Test Push Button -->
-                <div style="margin-top: 30px;">
-                    <button id="test-push" class="button" style="background: #4ecdc4;">
-                        📱 Test Push Notification
-                    </button>
-                </div>
-
-                <!-- Debug Info -->
-                <div id="debug-info" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; font-size: 12px; text-align: left; display: none;">
-                    <h4>Debug Information:</h4>
-                    <div id="debug-content"></div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p class="footer__title">Shreyas Dhane</p>
-        <div class="footer__social">
-            <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
-            <a href="https://www.instagram.com/" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+            
+            <button type="submit" class="submit-btn">Submit Profile to CleverTap</button>
+        </form>
+        
+        <div id="statusMessage" class="status" style="display: none;"></div>
+        
+        <div class="debug-section">
+            <h3>Debug Information</h3>
+            <div id="debugLog" class="debug-log"></div>
         </div>
-        <p class="footer__copy">&#169; All rights reserved</p>
-    </footer>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="assets/js/main.js"></script>
-
-    <!-- CleverTap Integration with Push Fix -->
+    <!-- CleverTap SDK -->
     <script type="text/javascript">
         // Initialize CleverTap
         var clevertap = {
-            event: [], 
-            profile: [], 
-            account: [], 
-            onUserLogin: [], 
-            notifications: [], 
+            event: [],
+            profile: [],
+            account: [],
+            onUserLogin: [],
+            notifications: [],
             privacy: []
         };
-        
-        // Replace with your actual CleverTap Account ID and region
-        clevertap.account.push({ "id": "TEST-R5Z-9R7-947Z" }, "eu1");
 
-        // Privacy Settings
-        clevertap.privacy.push({ optOut: false });
-        clevertap.privacy.push({ useIP: false });
+        // IMPORTANT: Replace with your actual CleverTap Account ID
+        clevertap.account.push({"id": "TEST-R5Z-9R7-947Z"}, "eu1");
+
+        // Privacy settings
+        clevertap.privacy.push({optOut: false});
+        clevertap.privacy.push({useIP: false});
 
         // Load CleverTap SDK
         (function () {
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
             wzrk.async = true;
-            wzrk.src = ('https:' == document.location.protocol 
-                ? 'https://d2r1yp2w7bby2u.cloudfront.net' 
-                : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
 
-        // Wait for CleverTap to load
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                initializeCleverTap();
-            }, 1000);
+        // Debug logging function
+        function debugLog(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logElement = document.getElementById('debugLog');
+            logElement.innerHTML += `[${timestamp}] ${message}\n`;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(`[CleverTap Debug] ${message}`);
+        }
+
+        // Show status message
+        function showStatus(message, type = 'info') {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.textContent = message;
+            statusEl.className = `status ${type}`;
+            statusEl.style.display = 'block';
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                statusEl.style.display = 'none';
+            }, 5000);
+        }
+
+        // Wait for page to load
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog('Page loaded, waiting for CleverTap SDK...');
+            
+            // Check CleverTap loading
+            let checkCount = 0;
+            const maxChecks = 20;
+            
+            const checkCleverTap = setInterval(() => {
+                checkCount++;
+                
+                if (typeof clevertap !== 'undefined' && clevertap.account) {
+                    clearInterval(checkCleverTap);
+                    debugLog('✅ CleverTap SDK loaded successfully');
+                    initializeForm();
+                } else if (checkCount >= maxChecks) {
+                    clearInterval(checkCleverTap);
+                    debugLog('❌ CleverTap SDK failed to load after 10 seconds');
+                    showStatus('CleverTap SDK failed to load. Please check your internet connection.', 'error');
+                } else {
+                    debugLog(`⏳ Waiting for CleverTap SDK... (${checkCount}/${maxChecks})`);
+                }
+            }, 500);
         });
 
-        function initializeCleverTap() {
-            // Debug function
-            function updateDebugInfo(message) {
-                const debugDiv = document.getElementById('debug-content');
-                const timestamp = new Date().toLocaleTimeString();
-                debugDiv.innerHTML += `<div>[${timestamp}] ${message}</div>`;
-                document.getElementById('debug-info').style.display = 'block';
-            }
-
-            // Check if CleverTap is loaded
-            if (typeof clevertap === 'undefined' || !clevertap.notifications) {
-                updateDebugInfo('❌ CleverTap SDK not loaded properly');
-                return;
-            }
-
-            updateDebugInfo('✅ CleverTap SDK loaded successfully');
-
-            // Push notification permission handler
-            document.getElementById('enable-push').addEventListener('click', function() {
-                updateDebugInfo('🔔 Requesting push permission...');
-                
-                // Request push permission
-                clevertap.notifications.push({
-                    "titleText": "Would you like to receive push notifications?",
-                    "bodyText": "We'll send you updates about your profile and important information.",
-                    "okButtonText": "Allow",
-                    "rejectButtonText": "No thanks",
-                    "okButtonColor": "#4ecdc4"
-                });
-
-                // Check permission status
-                if ('Notification' in window) {
-                    if (Notification.permission === 'granted') {
-                        document.getElementById('push-status').textContent = '✅ Push notifications enabled';
-                        document.getElementById('push-status').style.color = '#4ecdc4';
-                        updateDebugInfo('✅ Push notifications are enabled');
-                    } else if (Notification.permission === 'denied') {
-                        document.getElementById('push-status').textContent = '❌ Push notifications blocked';
-                        document.getElementById('push-status').style.color = '#ff6b6b';
-                        updateDebugInfo('❌ Push notifications are blocked');
-                    } else {
-                        document.getElementById('push-status').textContent = '⏳ Waiting for permission...';
-                        document.getElementById('push-status').style.color = '#ffa726';
-                        updateDebugInfo('⏳ Waiting for push permission...');
-                    }
-                }
-            });
-
-            // User profile form handler
-            document.getElementById("user-profile-form").addEventListener("submit", function (e) {
+        function initializeForm() {
+            const form = document.getElementById('profileForm');
+            
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const name = document.getElementById("name").value;
-                const email = document.getElementById("email").value;
-                const phone = document.getElementById("phone").value;
-                const gender = document.getElementById("gender").value;
-                const dob = document.getElementById("dob").value;
-
-                updateDebugInfo(`👤 Submitting profile for: ${name} (${email})`);
-
-                // Create user profile
+                // Get form data
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const phone = formData.get('phone');
+                const gender = formData.get('gender');
+                const dob = formData.get('dob');
+                
+                debugLog(`📝 Form submitted with data: ${name}, ${email}, ${phone}, ${gender}, ${dob}`);
+                
+                // Create user profile object
                 const userProfile = {
                     "Name": name,
                     "Identity": email,
@@ -294,105 +274,53 @@
                     "MSG-sms": true,
                     "MSG-whatsapp": true
                 };
-
-                // Send profile to CleverTap
-                clevertap.onUserLogin.push({
-                    "Site": userProfile
-                });
-
-                // Also send as profile update
-                clevertap.profile.push({
-                    "Site": userProfile
-                });
-
-                updateDebugInfo('✅ User profile sent to CleverTap');
-                alert("User profile submitted successfully!");
-                document.getElementById("user-profile-form").reset();
-            });
-
-            // Test push notification
-            document.getElementById('test-push').addEventListener('click', function() {
-                updateDebugInfo('🧪 Triggering test push event...');
                 
-                // Send test event
-                clevertap.event.push("Test Push Event", {
-                    "Source": "Portfolio Website",
-                    "Page": "Contact",
-                    "Time": new Date(),
-                    "Test": true
-                });
-
-                updateDebugInfo('✅ Test push event sent');
-                alert("Test push event sent to CleverTap!");
-            });
-
-            // Listen for push permission changes
-            if ('Notification' in window) {
-                // Check initial permission state
-                const permission = Notification.permission;
-                updateDebugInfo(`📱 Initial push permission: ${permission}`);
+                debugLog('👤 Created user profile object');
+                debugLog(`Profile data: ${JSON.stringify(userProfile, null, 2)}`);
                 
-                // Update status display
-                if (permission === 'granted') {
-                    document.getElementById('push-status').textContent = '✅ Push notifications enabled';
-                    document.getElementById('push-status').style.color = '#4ecdc4';
-                } else if (permission === 'denied') {
-                    document.getElementById('push-status').textContent = '❌ Push notifications blocked';
-                    document.getElementById('push-status').style.color = '#ff6b6b';
-                } else {
-                    document.getElementById('push-status').textContent = '⏳ Click to enable notifications';
-                    document.getElementById('push-status').style.color = '#ffa726';
+                try {
+                    // Method 1: Using onUserLogin (recommended for login/registration)
+                    clevertap.onUserLogin.push({
+                        "Site": userProfile
+                    });
+                    debugLog('✅ Profile sent via onUserLogin');
+                    
+                    // Method 2: Using profile.push (for profile updates)
+                    clevertap.profile.push({
+                        "Site": userProfile
+                    });
+                    debugLog('✅ Profile sent via profile.push');
+                    
+                    // Method 3: Send a custom event to track profile submission
+                    clevertap.event.push("Profile Submitted", {
+                        "Source": "Website Form",
+                        "Name": name,
+                        "Email": email,
+                        "Timestamp": new Date()
+                    });
+                    debugLog('✅ Profile submission event sent');
+                    
+                    showStatus('Profile successfully submitted to CleverTap!', 'success');
+                    
+                    // Reset form
+                    form.reset();
+                    
+                } catch (error) {
+                    debugLog(`❌ Error submitting profile: ${error.message}`);
+                    showStatus(`Error submitting profile: ${error.message}`, 'error');
                 }
-            }
+            });
+            
+            debugLog('✅ Form initialized and ready');
+            showStatus('Form ready! Fill out the details and submit.', 'info');
         }
-    </script>
 
-    <style>
-        .contact__input {
-            width: 100%;
-            padding: 12px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        
-        .button {
-            background: #4ecdc4;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-        
-        .button:hover {
-            background: #45b7aa;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .section {
-            padding: 4rem 0;
-        }
-        
-        .bd-grid {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .contact__container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-    </style>
+        // Additional debugging - listen for CleverTap events
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'clevertap') {
+                debugLog(`🔔 CleverTap message: ${JSON.stringify(event.data)}`);
+            }
+        });
+    </script>
 </body>
 </html>
