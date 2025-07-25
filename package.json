@@ -1,0 +1,20 @@
+{
+  "name": "clevertap-push-server",
+  "version": "1.0.0",
+  "description": "Node.js server for CleverTap push notification testing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+     "firebase": "^12.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["clevertap", "push", "notifications", "nodejs"],
+  "author": "Your Name",
+  "license": "MIT"
+}
