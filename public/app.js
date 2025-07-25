@@ -38,7 +38,7 @@ clevertap.privacy.push({ useIP: false });
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCKiQzfVC6MPLqJUE8TaTiil-ypYV6YMVQ",
+  apiKey: "",
   authDomain: "clevertap2-f9b91.firebaseapp.com",
   projectId: "clevertap2-f9b91",
   storageBucket: "clevertap2-f9b91.firebasestorage.app",
