@@ -24,7 +24,7 @@ clevertap.privacy.push({ useIP: false });
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wzrk, s);
     
-    // Setup notifications after SDK loads
+   
     wzrk.onload = function() {
         console.log("CleverTap SDK loaded successfully");
         setupCleverTapNotifications();
